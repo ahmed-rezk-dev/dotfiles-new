@@ -20,3 +20,4 @@
     ~/.config/skhd: skhd
     ~/.config/tmuxinator: tmuxinator
     ~/.config/tmux: tmux
+    ~/.hammerspoon: .hammerspoon
