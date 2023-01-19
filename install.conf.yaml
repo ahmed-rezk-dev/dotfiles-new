@@ -14,6 +14,5 @@
       create: true
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-    ~/.config/nvim:
-      path: nvim
-      create: true
+    ~/.config/nvim: nvim
+    ~/.config/alacritty: alacritty
