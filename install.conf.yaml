@@ -17,3 +17,4 @@
     ~/.config/nvim: nvim
     ~/.config/alacritty: alacritty
     ~/.config/kitty: kitty
+    ~/.config/skhd: skhd
