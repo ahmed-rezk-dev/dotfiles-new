@@ -18,3 +18,4 @@
     ~/.config/alacritty: alacritty
     ~/.config/kitty: kitty
     ~/.config/skhd: skhd
+    ~/.config/tmuxinator: tmuxinator
