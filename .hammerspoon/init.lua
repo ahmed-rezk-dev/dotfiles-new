@@ -38,7 +38,7 @@ config = {
     --[[ }, ]]
 
     window = {
-        highlightBorder = false,
+        highlightBorder = true,
         highlightMouse = true,
         historyLimit = 0,
     },
@@ -79,7 +79,7 @@ hs.hints.showTitleThresh = 0
 controlplane.enabled = { "autohome", "automount" }
 
 -- watchers
-watchers.enabled = { "urlevent" }
+watchers.enabled = { "autoborder" }
 watchers.urlPreference = config.apps.browsers
 
 -- bindings
