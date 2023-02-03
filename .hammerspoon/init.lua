@@ -12,8 +12,9 @@ require("hs.hotkey").setLogLevel "info"
 hs.window.highlight.ui.overlay = false
 hs.window.highlight.ui.flashDuration = 0
 hs.window.highlight.ui.frameWidth = 10
-hs.window.highlight.ui.frameColor = { 0, 0.6, 1, 0.5 }
+--[[ hs.window.highlight.ui.frameColor = { 0, 0.6, 1, 0.5 } ]]
 hs.window.highlight.start()
+local highlightBorderColor = { red = 14 / 255, green = 196 / 255, blue = 23 / 255, alpha = 1.8 }
 
 -- global config
 config = {
@@ -41,6 +42,7 @@ config = {
         highlightBorder = true,
         highlightMouse = true,
         historyLimit = 0,
+        highlightBorderColor = highlightBorderColor,
     },
 
     network = {

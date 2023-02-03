@@ -104,10 +104,11 @@ module.start = function()
         { app = "iTunes", title = "Song Info", tile = false },
         { app = "books", tile = true },
         { title = "Quick Look", tile = false },
+        { title = "1Password", tile = false },
     }
 
-    hhtwm.margin = 10 -- Merge around all window
-    hhtwm.screenMargin = { top = 25, bottom = 5, right = 5, left = 5 }
+    hhtwm.margin = 15 -- Merge around all window
+    hhtwm.screenMargin = { top = 15, bottom = 15, right = 15, left = 15 }
     hhtwm.filters = filters
     hhtwm.calcResizeStep = calcResizeStep
     hhtwm.displayLayouts = calculateDisplayLayouts()

@@ -32,7 +32,7 @@ module.start = function()
         { key = "t", fn = system.toggleTheme },
         { key = "w", fn = system.toggleWiFi },
     }, function(object)
-        hs.hotkey.bind(config.keymap.hyper, object.key, object.fn)
+        hs.hotkey.bind(ultra, object.key, object.fn)
     end)
 
     -- apps
