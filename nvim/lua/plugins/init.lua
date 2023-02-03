@@ -91,6 +91,7 @@ local plugins = {
       require("plugins._treesitter").setup()
     end,
   },
+  { "nvim-treesitter/playground" }, -- Neovim Treesitter Playground
   { "p00f/nvim-ts-rainbow" }, -- NOTE: To be fixed
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -235,8 +236,7 @@ local plugins = {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      -- load the colorscheme here
-      vim.cmd [[colorscheme tokyonight]]
+      require("themes.tokyonight").setup()
     end,
   },
   {
@@ -292,8 +292,22 @@ local plugins = {
   -- Note taking
   {
     "nvim-neorg/neorg",
-    ft = "norg",
+    build = ":Neorg sync-parsers",
     after = "nvim-treesitter",
+    opts = {
+      load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.norg.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+      },
+    },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
       require("plugins._norg").setup()
     end,

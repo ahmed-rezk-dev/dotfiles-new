@@ -38,10 +38,10 @@ local options = {
   -- FOLD
   --[[ foldcolumn = '1', ]]
   foldmethod = "indent", -- folding, set to "expr" for treesitter based foloding
-  foldopen = "mark",
-  foldlevel = 2,
-  foldlevelstart = 2,
-  foldenable = true,
+  --[[ foldopen = "mark", ]]
+  --[[ foldlevel = 2, ]]
+  --[[ foldlevelstart = 2, ]]
+  --[[ foldenable = true, ]]
   hidden = true,
   laststatus = 3,
   grepprg = "grep -nH",
