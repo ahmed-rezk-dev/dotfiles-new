@@ -12,6 +12,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export CC=/path/to/newer/compiler
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -173,6 +174,8 @@ antigen bundle warhol
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen bundle Aloxaf/fzf-tab
 
 # Load the theme.
 #antigen theme romkatv/powerlevel10k
