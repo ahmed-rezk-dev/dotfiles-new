@@ -1,4 +1,5 @@
 local M = {}
+local keymap = vim.keymap.set
 
 M.setup = function(bufnr)
   local opts = { noremap = true, silent = true }
@@ -30,6 +31,27 @@ nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR> ]]
   map(bufnr, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 
+  -- Show line diagnostics
+  -- You can pass argument ++unfocus to
+  -- unfocus the show_line_diagnostics floating window
+  keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
+  -- Show cursor diagnostics
+  -- Like show_line_diagnostics, it supports passing the ++unfocus argument
+  keymap("n", "gC", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+  -- Diagnostic jump
+  -- You can use <C-o> to jump back to your previous location
+  keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+
+  -- Diagnostic jump with filters such as only jumping to an error
+  keymap("n", "[E", function()
+    require("lspsaga.diagnostic"):goto_prev { severity = vim.diagnostic.severity.ERROR }
+  end)
+  keymap("n", "]E", function()
+    require("lspsaga.diagnostic"):goto_next { severity = vim.diagnostic.severity.ERROR }
+  end)
+
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) ]]
@@ -43,7 +65,7 @@ nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR> ]]
   --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) ]]
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', opts)
+  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', opts) ]]
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
