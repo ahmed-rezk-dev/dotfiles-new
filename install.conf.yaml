@@ -9,9 +9,6 @@
 - link:
     ~/.bashrc: bashrc
     ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-      path: ssh/config
-      create: true
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
     ~/.config/nvim: nvim

@@ -203,7 +203,8 @@ local plugins = {
   }, -- This is the Neovim implementation of the famous Emacs Hydra package.
   { "kyazdani42/nvim-web-devicons" }, -- This plugin provides the same icons as well as colors for each icon
   {
-    "tami5/lspsaga.nvim",
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
     config = function()
       require("plugins._lspsaga").setup()
     end,
