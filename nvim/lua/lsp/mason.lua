@@ -1,5 +1,5 @@
 local M = {}
-local servers = { "sumneko_lua", "dockerls", "eslint", "html", "jsonls", "tsserver", "remark_ls", "spectral", "powershell_es", "tailwindcss", "yamlls", "lemminx" }
+local servers = { "lua_ls", "dockerls", "eslint", "html", "jsonls", "tsserver", "remark_ls", "powershell_es", "tailwindcss", "yamlls", "lemminx" }
 
 local settings = {
   ui = {
