@@ -119,6 +119,9 @@ M.setup = function()
       s = { ":SaveSession<cr>", "Save Session" },
       S = { ":Telescope session-lens search_session<cr>", "All Sessions" },
       l = { ":RestoreSession<cr>", "Load Session" },
+      f = { "<cmd>lua require('nvim-possession').list()<cr>", "All" },
+      g = { "<cmd>lua require('nvim-possession').new()<cr>", "All" },
+      G = { "<cmd>lua require('nvim-possession').update()<cr>", "All" },
     },
 
     -- LSP

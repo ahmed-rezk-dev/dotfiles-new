@@ -9,12 +9,35 @@ local plugins = {
   }, -- Automagically cd to project directory using nvim lsp
   { "lewis6991/impatient.nvim" }, -- Speed up loading Lua modules in Neovim to improve startup time.
   { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
+  -- sessions manager
+
+  {
+    "gennaro-tedesco/nvim-possession",
+    dependencies = {
+      "ibhagwan/fzf-lua",
+    },
+    config = function()
+      require("plugins._possession").setup()
+    end,
+    init = function()
+      local possession = require "nvim-possession"
+      vim.keymap.set("n", "<leader>sl", function()
+        possession.list()
+      end)
+      vim.keymap.set("n", "<leader>sn", function()
+        possession.new()
+      end)
+      vim.keymap.set("n", "<leader>su", function()
+        possession.update()
+      end)
+    end,
+  },
   {
     "rmagatti/auto-session",
     config = function()
       require("plugins._sessions").setup()
     end,
-  }, -- sessions manager
+  },
   {
     "rmagatti/session-lens",
     dependencies = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
@@ -251,7 +274,12 @@ local plugins = {
   },
   --[[ { "olimorris/onedarkpro.nvim", config = function() require("themes.onedarkPro").setup() end }, ]]
   --[[   { "ahmed-rezk-dev/onedarkpro.nvim", config = function() require("themes.onedarkPro").setup() end } ]]
-  --[[   {'stevearc/dressing.nvim', config = function() require("plugins._dressing").setup() end } -- extensible core UI hooks (vim.ui.select and vim.ui.input). ]]
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("plugins._dressing").setup()
+    end,
+  }, -- extensible core UI hooks (vim.ui.select and vim.ui.input).
   -- My fave colour schemes:
   -- dracula/dracula-theme, rakr/vim-one, gosukiwi/vim-atom-dark,
   -- phanviet/vim-monokai-pro rhysd/vim-color-spring-night arzg/vim-colors-xcode
