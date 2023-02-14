@@ -10,28 +10,6 @@ local plugins = {
   { "lewis6991/impatient.nvim" }, -- Speed up loading Lua modules in Neovim to improve startup time.
   { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
   -- sessions manager
-
-  {
-    "gennaro-tedesco/nvim-possession",
-    dependencies = {
-      "ibhagwan/fzf-lua",
-    },
-    config = function()
-      require("plugins._possession").setup()
-    end,
-    init = function()
-      local possession = require "nvim-possession"
-      vim.keymap.set("n", "<leader>sl", function()
-        possession.list()
-      end)
-      vim.keymap.set("n", "<leader>sn", function()
-        possession.new()
-      end)
-      vim.keymap.set("n", "<leader>su", function()
-        possession.update()
-      end)
-    end,
-  },
   {
     "rmagatti/auto-session",
     config = function()
@@ -72,7 +50,7 @@ local plugins = {
   { "joechrisellis/lsp-format-modifications.nvim" },
   {
     "folke/trouble.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugins._trouble").setup()
     end,
@@ -183,7 +161,7 @@ local plugins = {
 
   -- Lua interface plugins
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     config = function()
       require("plugins._nvim-tree").setup()
     end,
@@ -212,19 +190,30 @@ local plugins = {
       require("plugins._telescope").setup()
     end,
   }, -- finder/ Searchings
+  -- Dashboard window
   {
-    "goolord/alpha-nvim",
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
     config = function()
-      require("plugins._alpha").setup()
+      require("plugins._dashboard").setup()
     end,
-  }, -- Dashboard window
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  },
+  --[[ { ]]
+  --[[   "goolord/alpha-nvim", ]]
+  --[[   config = function() ]]
+  --[[     require("plugins._alpha").setup() ]]
+  --[[   end, ]]
+  --[[ }, ]]
+  -- This is the Neovim implementation of the famous Emacs Hydra package.
   {
     "anuvyklack/hydra.nvim",
     config = function()
       require("plugins._hydra").setup()
     end,
-  }, -- This is the Neovim implementation of the famous Emacs Hydra package.
-  { "kyazdani42/nvim-web-devicons" }, -- This plugin provides the same icons as well as colors for each icon
+  },
+  --[[ { "nvim-tree/nvim-web-devicons" }, -- This plugin provides the same icons as well as colors for each icon ]]
+  --[[ { "nvim-tree/nvim-web-devicons" }, ]]
   {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
@@ -313,7 +302,7 @@ local plugins = {
   },
   {
     "pwntester/octo.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins._octo").setup()
     end,
