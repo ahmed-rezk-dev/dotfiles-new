@@ -30,6 +30,12 @@ M.setup = function()
                     action = "SearchSession",
                     key = "s",
                 },
+                {
+                    desc = " Last Session",
+                    group = "Success",
+                    action = "RestoreSession",
+                    key = "l",
+                },
             },
         },
     }
