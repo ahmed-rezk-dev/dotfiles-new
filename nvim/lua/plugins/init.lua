@@ -93,7 +93,7 @@ local plugins = {
         end,
     },
     { "nvim-treesitter/playground" }, -- Neovim Treesitter Playground
-    { "mrjones2014/nvim-ts-rainbow" }, -- NOTE: To be fixed
+    { "mrjones2014/nvim-ts-rainbow" },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
