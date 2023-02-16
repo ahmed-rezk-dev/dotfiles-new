@@ -8,3 +8,4 @@ require("lsp.mason").setup()
 require "lsp"
 --[[ require("themes.colorscheme") ]]
 require("utils.tasks").runTypeCheckTasks()
+require("themes.cmp-tiems-colors")

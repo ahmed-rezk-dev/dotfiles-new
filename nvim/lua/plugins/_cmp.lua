@@ -106,7 +106,7 @@ M.setup = function()
                 --[[ cmp_tabnine ]]
                 if entry.source.name == "cmp_tabnine" then
                     local detail = (entry.completion_item.data or {}).detail
-                    kind.kind = " "
+                    kind.kind = "  "
                     kind.menu = "    ( AI )"
                     if detail and detail:find ".*%%.*" then
                         vim_item.kind = vim_item.kind .. " " .. detail
