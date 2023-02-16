@@ -102,6 +102,17 @@ M.setup = function()
                 local strings = vim.split(kind.kind, "%s", { trimempty = true })
                 kind.kind = " " .. strings[1] .. " "
                 kind.menu = "    (" .. strings[2] .. ")"
+
+                --[[ cmp_tabnine ]]
+                if entry.source.name == "cmp_tabnine" then
+                    local detail = (entry.completion_item.data or {}).detail
+                    kind.kind = " "
+                    kind.menu = "    ( AI )"
+                    if detail and detail:find ".*%%.*" then
+                        vim_item.kind = vim_item.kind .. " " .. detail
+                    end
+                end
+
                 return kind
             end,
         },
