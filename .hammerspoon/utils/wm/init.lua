@@ -104,7 +104,9 @@ module.start = function()
         { app = "iTunes", title = "Song Info", tile = false },
         { app = "books", tile = true },
         { title = "Quick Look", tile = false },
-        { title = "1Password", tile = false },
+        { app = "1Password", title = "1Password", tile = false },
+        { app = "Chrome", title = "DevTools", tile = false },
+        { app = "Zoom", title = "Zoom", tile = false },
     }
 
     hhtwm.margin = 15 -- Merge around all window
