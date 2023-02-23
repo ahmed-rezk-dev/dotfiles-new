@@ -208,10 +208,11 @@ M.setup = function()
             J = { "<cmd>:'<,'>SnipRun<cr>", "Javascript Run" },
         },
 
-        -- Terminal support
+        -- Script support
         t = {
-            name = "Terminal",
-            e = { "<cmd>lua _TYPESCHECK_TOGGLE()<cr>", "Typecheck" },
+            name = "Scripts",
+            t = { "<cmd>lua require('utils.tasks').runTypeCheckTasks()<cr>", "Typecheck" },
+            e = { "<cmd>lua _TYPESCHECK_TOGGLE()<cr>", "Terminal Typecheck" },
         },
 
         -- notes comments
