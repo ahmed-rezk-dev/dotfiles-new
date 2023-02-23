@@ -141,7 +141,7 @@ local plugins = {
     { "hrsh7th/cmp-nvim-lsp" },
     {
         "tzachar/cmp-tabnine",
-        build = vim.fn.stdpath "data" .. "lazy/cmp-tabnine/install.sh",
+        build = vim.fn.stdpath "data" .. "/lazy/cmp-tabnine/install.sh",
         dependencies = "hrsh7th/nvim-cmp",
         config = function()
             local tabnine = require "cmp_tabnine.config"
@@ -230,6 +230,17 @@ local plugins = {
         end,
         dependencies = { { "nvim-tree/nvim-web-devicons" } },
     },
+    {
+        "folke/noice.nvim",
+        config = function()
+            require("plugins._noice").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+    }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
+
     --[[ { ]]
     --[[   "goolord/alpha-nvim", ]]
     --[[   config = function() ]]
@@ -280,7 +291,7 @@ local plugins = {
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require("themes.tokyonight").setup()
+            --[[ require("themes.tokyonight").setup() ]]
         end,
     },
     {
@@ -290,6 +301,23 @@ local plugins = {
         config = function()
             -- load the colorscheme here
             -- vim.cmd([[colorscheme kanagawa]])
+        end,
+    },
+    {
+        "uloco/bluloco.nvim",
+        lazy = false,
+        priority = 1000,
+        dependencies = { "rktjmp/lush.nvim" },
+        config = function()
+            require("bluloco").setup {
+                style = "auto", -- "auto" | "dark" | "light"
+                transparent = true,
+                italics = true,
+                terminal = vim.fn.has "gui_running" == 1, -- bluoco colors are enabled in gui terminals per default.
+                guicursor = true,
+            }
+
+            vim.cmd "colorscheme bluloco"
         end,
     },
     --[[ { "olimorris/onedarkpro.nvim", config = function() require("themes.onedarkPro").setup() end }, ]]
