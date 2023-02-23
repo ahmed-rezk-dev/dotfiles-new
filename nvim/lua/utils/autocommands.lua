@@ -76,8 +76,8 @@ augroup end ]]
 --[[ }) ]]
 
 vim.cmd [[
-  augroup typeCh
-    autocmd!
-    autocmd BufWritePost *.tsx  lua require("utils.tasks").runTypeCheckTasks() 
-  augroup end
+  " augroup typeCh
+  "   autocmd!
+  "   autocmd BufWritePost *.tsx  lua require("utils.tasks").runTypeCheckTasks() 
+  " augroup end
 ]]
