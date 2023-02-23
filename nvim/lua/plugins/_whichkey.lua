@@ -93,12 +93,12 @@ M.setup = function()
             name = "Search",
             b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
             c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-            f = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-                "Find files" },
+            --[[ f = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", ]]
+            --[[     "Find files" }, ]]
             P = { "<cmd>Telescope projects<cr>", "Projects" },
             h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
             M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-            r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+            o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
             R = { "<cmd>Telescope registers<cr>", "Registers" },
             t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
             k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -107,6 +107,11 @@ M.setup = function()
             p = { "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
                 "Colorscheme with Preview" },
             T = { "<cmd>TodoTelescope <cr>", "TODO" },
+            --[[ FZF ]]
+            r = { "<cmd>FzfLua lsp_references<cr>", "References" },
+            s = { "<cmd>FzfLua live_grep<cr>", "Live Grep" },
+            f = { "<cmd>FzfLua files<cr>", "Files" },
+
         },
 
         -- Seacrh & Replace
