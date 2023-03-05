@@ -58,7 +58,12 @@ local plugins = {
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     --[[   {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', config = function() require('plugins._fold').setup() end } ]]
-    --[[  { 'anuvyklack/pretty-fold.nvim', config = function() require('pretty-fold').setup() end } ]]
+    {
+        "anuvyklack/pretty-fold.nvim",
+        config = function()
+            require("pretty-fold").setup()
+        end,
+    },
 
     --[[   {"neomake/neomake", config = function()  vim.g.gneomake_typescriptreact_enabled_makers = "['tsc']" end} ]]
     --[[ { ]]
@@ -125,6 +130,15 @@ local plugins = {
             require("plugins._todo-higlight").setup()
         end,
     }, -- highlight your todo comments in different styles
+    {
+        "folke/noice.nvim",
+        config = function()
+            require("plugins._noice").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
+    }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 
     -- cmp plugins
     {
@@ -292,7 +306,12 @@ local plugins = {
             -- vim.cmd([[colorscheme kanagawa]])
         end,
     },
-    --[[ { "olimorris/onedarkpro.nvim", config = function() require("themes.onedarkPro").setup() end }, ]]
+    --[[ { ]]
+    --[[     "olimorris/onedarkpro.nvim", ]]
+    --[[     config = function() ]]
+    --[[         require("themes.onedarkPro").setup() ]]
+    --[[     end, ]]
+    --[[ }, ]]
     --[[   { "ahmed-rezk-dev/onedarkpro.nvim", config = function() require("themes.onedarkPro").setup() end } ]]
     {
         "stevearc/dressing.nvim",
@@ -378,16 +397,6 @@ local plugins = {
         end,
     },
     --[[   {'akinsho/git-conflict.nvim', tag = "*", config = function() require('plugins._git').gitConflicts() end } -- visualise and resolve conflicts ]]
-
-    {
-        "folke/noice.nvim",
-        config = function()
-            require("plugins._noice").setup()
-        end,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-    }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 }
 local opts = {}
 
