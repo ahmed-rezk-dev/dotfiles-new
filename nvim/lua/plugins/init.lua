@@ -70,7 +70,6 @@ local plugins = {
     --[[ }, ]]
     {
         "stevearc/overseer.nvim",
-        dependencies = { "rcarriga/nvim-notify" },
         config = function()
             require("overseer").setup()
         end,
@@ -387,7 +386,6 @@ local plugins = {
         end,
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
         },
     }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 }
