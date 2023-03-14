@@ -1,14 +1,16 @@
 # /Users/ahmedrezk/.config/tmuxinator/SimplifiedQuotingReactDotnet.yml
 
 name: SQT
-root: /Users/ahmedrezk/Work/simplified-quoting/ui/
+root: /Users/ahmedrezk/Work/simplified-quoting
 
 windows:
   - editor:
       - nvim
       - guard
   - editor-2:
-  - bakcend: cd ../Sunnova.SimplifiedQuoting && dotnet run # dotnet runs bakcend & fronted
-  - storybook: npm run storybook
-  - test: npm run test -u
-  - ui:
+  - bakcend: cd Sunnova.SimplifiedQuoting && dotnet run # dotnet runs bakcend & fronted
+  - storybook: cd ui && npm run storybook
+  - test: cd && npm run test -u
+  - git: lazygit
+  - notes: cd /Users/ahmedrezk/.dotfiles/ && nvim sqt.norg
+  - tasks:
