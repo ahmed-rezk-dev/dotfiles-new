@@ -1,0 +1,15 @@
+* Manual Pricing
+  - error UI
+  - Fix this erro `react_devtools_backend.js:4012 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.`
+
+
+
+* 2974
+  - 3976
+    [x] Fix Add Pricing to Proposal after verfiging towice  
+    [x] Check opional Services total
+    [x] fixing the overlaping ui endpont error message chrome-extension://fdpohaocaechififmbbbbbknoalclacl/capture.html?id=4&url=https%3A%2F%2Flocalhost%3A5001%2Flead%2F00Q6C00000RSHvwUAH%2Fgenerate-pricing%2Face2ed06-2424-42dd-9c49-76da8f934e29%2Fconfigure
+    [] Add required sign to 'Customer Pricing per sq ft.*' input box 
+
+
+

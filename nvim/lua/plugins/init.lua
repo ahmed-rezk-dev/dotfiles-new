@@ -137,6 +137,7 @@ local plugins = {
         end,
         dependencies = {
             "MunifTanjim/nui.nvim",
+            --[[ "rcarriga/nvim-notify", ]]
         },
     }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 
@@ -242,6 +243,12 @@ local plugins = {
             require("plugins._dashboard").setup()
         end,
         dependencies = { { "nvim-tree/nvim-web-devicons" } },
+    },
+    {
+        "beauwilliams/focus.nvim",
+        config = function()
+            require("focus").setup { width = 200 }
+        end,
     },
 
     --[[ { ]]

@@ -1,9 +1,8 @@
 local M = {}
 
 M.setup = function()
+    ---@diagnostic disable-next-line: redundant-parameter
     require("tokyonight").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
         light_style = "day", -- The theme is used when the background is set to light
         transparent = false, -- Enable this to disable setting the background color
@@ -24,6 +23,12 @@ M.setup = function()
         hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
         dim_inactive = false, -- dims inactive windows
         lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+        --[[ on_highlights = function(highlights, colors) ]]
+        --[[     highlights.NormalFloat = { ]]
+        --[[         bg = colors.bg_dark, ]]
+        --[[         fg = colors.fg_dark, ]]
+        --[[     } ]]
+        --[[ end, ]]
     }
     vim.cmd [[colorscheme tokyonight]]
 end
