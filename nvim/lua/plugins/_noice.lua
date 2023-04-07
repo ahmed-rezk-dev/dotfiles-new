@@ -61,7 +61,7 @@ M.setup = function()
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
                 ["vim.lsp.util.stylize_markdown"] = false,
                 ["cmp.entry.get_documentation"] = false,
-                progress = { enabled = false }
+                progress = { enabled = false },
                 --[[ ["vim.lsp.signature.enabled"] = false ]]
             },
             signature = {
@@ -88,13 +88,23 @@ M.setup = function()
             enabled = false,
             view = "notify",
         },
+        messages = {
+            -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+            -- This is a current Neovim limitation.
+            enabled = true, -- enables the Noice messages UI
+            view = "notify", -- default view for messages
+            view_error = "notify", -- view for errors
+            view_warn = "notify", -- view for warnings
+            view_history = "messages", -- view for :messages
+            view_search = false, -- view for search count messages. Set to `false` to disable
+        },
     }
 
     --[[ Please note: This snippet overrides the progress handler. So you will need to disable noice's handling of the same: ]]
     local null_ls_token = nil
     local ltex_token = nil
 
-    vim.lsp.handlers['$/progress'] = function(_, result, ctx)
+    vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         local value = result.value
         if not value.kind then
             return
@@ -103,21 +113,21 @@ M.setup = function()
         local client_id = ctx.client_id
         local name = vim.lsp.get_client_by_id(client_id).name
 
-        if name == 'null-ls' then
+        if name == "null-ls" then
             if result.token == null_ls_token then
                 return
             end
-            if value.title == 'formatting' then
+            if value.title == "formatting" then
                 null_ls_token = result.token
                 return
             end
         end
 
-        if name == 'ltex' then
+        if name == "ltex" then
             if result.token == ltex_token then
                 return
             end
-            if value.title == 'Checking document' then
+            if value.title == "Checking document" then
                 ltex_token = result.token
                 return
             end

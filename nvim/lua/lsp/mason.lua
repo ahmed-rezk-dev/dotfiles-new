@@ -1,5 +1,5 @@
 local M = {}
-local servers = { "lua_ls", "dockerls", "eslint", "html", "jsonls", "tsserver", "remark_ls", "powershell_es", "tailwindcss", "yamlls", "lemminx" }
+local servers = { "lua_ls", "dockerls", "eslint", "html", "jsonls", "tsserver", "remark_ls", "powershell_es", "tailwindcss", "yamlls", "lemminx", "astro-language-server" }
 
 local settings = {
   ui = {
@@ -44,4 +44,5 @@ function M.setup()
     lspconfig[server].setup(opts)
   end
 end
+
 return M
