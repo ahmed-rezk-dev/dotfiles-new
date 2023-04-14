@@ -153,34 +153,19 @@ local plugins = {
   { "hrsh7th/cmp-cmdline" },
   { "saadparwaiz1/cmp_luasnip" },
   { "hrsh7th/cmp-nvim-lsp" },
+  -- snippets
+  { "L3MON4D3/LuaSnip" },
+  { "rafamadriz/friendly-snippets" },
   {
     "tzachar/cmp-tabnine",
     build = vim.fn.stdpath "data" .. "/lazy/cmp-tabnine/install.sh",
     dependencies = "hrsh7th/nvim-cmp",
     config = function()
-      local tabnine = require "cmp_tabnine.config"
-
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-        run_on_every_keystroke = true,
-        snippet_placeholder = "..",
-        ignored_file_types = {
-          -- default is not to ignore
-          -- uncomment to ignore in lua:
-          -- lua = true
-        },
-        show_prediction_strength = false,
-      }
+      require("plugins._tabnine").setup()
     end,
   },
   { "onsails/lspkind.nvim" },
   { "hrsh7th/cmp-nvim-lsp-signature-help" },
-
-  -- snippets
-  { "L3MON4D3/LuaSnip" },
-  { "rafamadriz/friendly-snippets" },
 
   -- Debug Adapter Protocol
   {
@@ -307,7 +292,7 @@ local plugins = {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require("themes.tokyonight").setup()
+      --[[ require("themes.tokyonight").setup() ]]
     end,
   },
   {
@@ -346,11 +331,44 @@ local plugins = {
   -- dracula/dracula-theme, rakr/vim-one, gosukiwi/vim-atom-dark,
   -- phanviet/vim-monokai-pro rhysd/vim-color-spring-night arzg/vim-colors-xcode
   -- kyoz/purify 'jonathanfilip/vim-lucius'
+
   --[[   {'catppuccin/nvim'} ]]
   --[[   {'Mofiqul/dracula.nvim'} ]]
   --[[   {'shaunsingh/nord.nvim'} ]]
   --[[   'navarasu/onedark.nvim' ]]
 
+  --[[ { ]]
+  --[[   "neanias/everforest-nvim", ]]
+  --[[   version = false, ]]
+  --[[   lazy = false, ]]
+  --[[   priority = 1000, -- make sure to load this before all the other start plugins ]]
+  --[[   -- Optional; default configuration will be used if setup isn't called. ]]
+  --[[   config = function() ]]
+  --[[     require("everforest").setup { background = "hard" } ]]
+  --[[   end, ]]
+  --[[ }, ]]
+  --[[ { ]]
+  --[[   "luisiacc/gruvbox-baby", ]]
+  --[[   branch = "main", ]]
+  --[[   config = function() ]]
+  --[[     vim.g.gruvbox_baby_background_color = "dark" ]]
+  --[[   end, ]]
+  --[[ }, ]]
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      vim.cmd.colorscheme "catppuccin"
+      require("catppuccin").setup {
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        background = {
+          -- :h background
+          light = "latte",
+          dark = "macchiato",
+        },
+      }
+    end,
+  },
   -- Customization
 
   -- Git
