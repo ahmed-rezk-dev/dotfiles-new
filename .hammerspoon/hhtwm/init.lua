@@ -8,7 +8,6 @@ local module = { cache = cache }
 
 local layouts = createLayouts(module)
 local log = hs.logger.new("hhtwm", "debug")
-
 local SWAP_BETWEEN_SCREENS = false
 
 local getDefaultLayoutOptions = function()

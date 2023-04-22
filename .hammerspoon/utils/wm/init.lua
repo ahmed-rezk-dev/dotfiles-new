@@ -79,7 +79,6 @@ end
 module.start = function()
     --[[ local axuiWindowElement = require('hs.axuielement').windowElement ]]
     --[[ local spaces       = require('hs._asm.undocumented.spaces') ]]
-
     local filters = {
         { app = "AppCleaner", tile = false },
         { app = "Application Loader", tile = true },
@@ -114,8 +113,8 @@ module.start = function()
     hhtwm.filters = filters
     hhtwm.calcResizeStep = calcResizeStep
     hhtwm.displayLayouts = calculateDisplayLayouts()
-    hhtwm.defaultLayout = "main-left"
-    hhtwm.enabledLayouts = { "main-left", "main-left", "monocle", "equal-left", "equal-right", "main-right" }
+    hhtwm.defaultLayout = "main-right"
+    hhtwm.enabledLayouts = { "main-left", "monocle", "equal-left", "equal-right", "main-right", "side-by-side", "main-center" }
 
     --[[ hhtwm.displayLayouts = { ]]
     --[[     [3]    = { 'main-right', 'main-right', 'side-by-side' }, ]]
