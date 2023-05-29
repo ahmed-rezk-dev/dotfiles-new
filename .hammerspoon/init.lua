@@ -22,7 +22,6 @@ config = {
         --[[ terms = { "kitty" }, ]]
         browsers = { "Google Chrome", "Safari" },
     },
-
     --[[ wm = { ]]
     --[[     defaultLayout = 'monocle', ]]
     --[[]]
@@ -38,17 +37,30 @@ config = {
     --[[     } ]]
     --[[ }, ]]
 
+    wm = {
+        -- tilingMethod = 'hhtwm',
+        tilingMethod = "yabai",
+        -- tilingMethod = 'grid',
+        -- tilingMethod = 'autogrid',
+
+        defaultLayouts = { "monocle", "main-left" },
+        displayLayouts = {
+            ["XDR Display"] = { "monocle", "main-left" },
+            ["C49RG9x"] = { "main-left", "main-right", "main-center", "monocle" },
+        },
+    },
+    logger = {
+        path = os.getenv "HOME" .. "/.logger/data.db",
+    },
     window = {
         highlightBorder = true,
         highlightMouse = true,
         historyLimit = 0,
         highlightBorderColor = highlightBorderColor,
     },
-
     network = {
         home = "Skynet 5G",
     },
-
     homebridge = {
         studioSpeakers = { aid = 10, iid = 11, name = "Studio Speakers" },
         studioLights = { aid = 9, iid = 11, name = "Studio Lights" },
@@ -85,7 +97,7 @@ watchers.enabled = { "autoborder" }
 watchers.urlPreference = config.apps.browsers
 
 -- bindings
-bindings.enabled = { "ask-before-quit", "block-hide", "ctrl-esc", "f-keys", "focus", "global", "tiling", "viscosity" }
+bindings.enabled = { "ask-before-quit", "block-hide", "ctrl-esc", "f-keys", "focus", "global", "tiling", "viscosity", "grid" }
 bindings.askBeforeQuitApps = config.apps.browsers
 
 -- start/stop modules

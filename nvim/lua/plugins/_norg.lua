@@ -4,7 +4,7 @@ M.setup = function()
   require("neorg").setup {
     load = {
       ["core.defaults"] = {},
-      ["core.norg.dirman"] = {
+      ["core.dirman"] = {
         config = {
           workspaces = {
             work = "~/notes/work",
@@ -12,8 +12,8 @@ M.setup = function()
           },
         },
       },
-      ["core.norg.concealer"] = {},
-      ["core.norg.completion"] = {
+      ["core.concealer"] = {},
+      ["core.completion"] = {
         config = {
           engine = "nvim-cmp",
         },

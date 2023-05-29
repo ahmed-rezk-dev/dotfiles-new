@@ -7,7 +7,7 @@ local HIGHLIGHTS = require "themes.custom.new-highlights"
 
 local skeletons = {
   CMP,
-  HIGHLIGHTS,
+  --[[ HIGHLIGHTS, ]]
 }
 
 for _, skeleton in ipairs(skeletons) do

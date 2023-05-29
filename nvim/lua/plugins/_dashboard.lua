@@ -33,7 +33,7 @@ M.setup = function()
                 {
                     desc = " Last Session",
                     group = "Success",
-                    action = "RestoreSession",
+                    action = "SessionRestore",
                     key = "l",
                 },
             },

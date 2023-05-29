@@ -10,13 +10,13 @@ M.setup = function()
             -- the presets plugin, adds help for a bunch of default keybindings in Neovim
             -- No actual key bindings are created
             presets = {
-                operators = false, -- adds help for operators like d, y, ...
-                motions = false, -- adds help for motions
-                text_objects = false, -- help for text objects triggered after entering an operator
-                windows = true, -- default bindings on <c-w>
-                nav = true, -- misc bindings to work with windows
-                z = true, -- bindings for folds, spelling and others prefixed with z
-                g = true, -- bindings for prefixed with g
+                operators = false,                     -- adds help for operators like d, y, ...
+                motions = false,                       -- adds help for motions
+                text_objects = false,                  -- help for text objects triggered after entering an operator
+                windows = true,                        -- default bindings on <c-w>
+                nav = true,                            -- misc bindings to work with windows
+                z = true,                              -- bindings for folds, spelling and others prefixed with z
+                g = true,                              -- bindings for prefixed with g
             },
             spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
         },
@@ -26,18 +26,18 @@ M.setup = function()
             group = "+", -- symbol prepended to a group
         },
         window = {
-            border = "double", -- none, single, double, shadow
+            border = "double",  -- none, single, double, shadow
             position = "bottom", -- bottom, top
             margin = { 1, 2, 1, 4 }, -- extra window margin [top, right, bottom, left]
             padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
         },
         layout = {
-            height = { min = 4, max = 25 }, -- min and max height of the columns
-            width = { min = 20, max = 50 }, -- min and max width of the columns
-            spacing = 3, -- spacing between columns
+            height = { min = 4, max = 25 },                                       -- min and max height of the columns
+            width = { min = 20, max = 50 },                                       -- min and max width of the columns
+            spacing = 3,                                                          -- spacing between columns
         },
         hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-        show_help = true, -- show help message on the command line when the popup is visible
+        show_help = true,                                                         -- show help message on the command line when the popup is visible
         ignore_missing = false,
     }
 
@@ -74,9 +74,10 @@ M.setup = function()
         ["h"] = { '<cmd>let @/=""<CR>', "No Highlight" },
         ["m"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
         ["f"] = { "<cmd>FzfLua files<cr>", "Find files" },
-        L = { "<cmd>:put =printf('console.log('' 🔔 %s 👉 %s 👉 %s:'', %s);', line('.'), expand('%:t'), expand('<cword>'), expand('<cword>'))<cr>",
-            "Javascript Log" },
-
+        L = {
+            "<cmd>:put =printf('console.log('' 🔔 %s 👉 %s 👉 %s:'', %s);', line('.'), expand('%:t'), expand('<cword>'), expand('<cword>'))<cr>",
+            "Javascript Log",
+        },
         -- Packer
         p = {
             name = "Packer",
@@ -86,7 +87,6 @@ M.setup = function()
             s = { "<cmd>Lazy sync<cr>", "Sync" },
             c = { "<cmd>Lazy clear<cr>", "Clear" },
         },
-
         -- Seacrh
         s = {
             name = "Search",
@@ -111,7 +111,6 @@ M.setup = function()
             s = { "<cmd>FzfLua live_grep<cr>", "Live Grep" },
             f = { "<cmd>FzfLua files<cr>", "Files" },
         },
-
         -- Seacrh & Replace
         r = {
             name = "Search & Replace",
@@ -119,18 +118,16 @@ M.setup = function()
             w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search current word" },
             f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Search current file" },
         },
-
         -- Sessions
         S = {
             name = "Sessions",
-            s = { ":SaveSession<cr>", "Save Session" },
+            s = { ":SessionSave<cr>", "Save Session" },
             S = { ":Telescope session-lens search_session<cr>", "All Sessions" },
-            l = { ":RestoreSession<cr>", "Load Session" },
+            l = { ":SessionRestore<cr>", "Load Session" },
             f = { "<cmd>lua require('nvim-possession').list()<cr>", "All" },
             g = { "<cmd>lua require('nvim-possession').new()<cr>", "All" },
             G = { "<cmd>lua require('nvim-possession').update()<cr>", "All" },
         },
-
         -- LSP
         l = {
             name = "LSP",
@@ -154,15 +151,14 @@ M.setup = function()
             k = { "<cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = O.lsp.popup_border}})<cr>",
                 "Prev Diagnostic" },
             b = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
+            f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format Document" },
         },
-
         T = {
             name = "Treesitter",
             i = { ":TSConfigInfo<cr>", "Info" },
             p = { ":TSPlaygroundToggle<cr>", "Playground" },
             h = { ":TSHighlightCapturesUnderCursor<cr>", "Syntax highlight" },
         },
-
         -- Git
         g = {
             name = "Git",
@@ -188,7 +184,6 @@ M.setup = function()
             F = { "<cmd>DiffviewFileHistory<cr>", "File History / Current File" },
             q = { "<cmd>DiffviewClose<cr>", "Close Diffview" },
         },
-
         -- Debugging
         d = {
             name = "Debug",
@@ -210,20 +205,17 @@ M.setup = function()
             q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
             J = { "<cmd>:'<,'>SnipRun<cr>", "Javascript Run" },
         },
-
         -- Script support
         t = {
             name = "Scripts",
             t = { "<cmd>lua require('utils.tasks').runTypeCheckTasks()<cr>", "Typecheck" },
             e = { "<cmd>lua _TYPESCHECK_TOGGLE()<cr>", "Terminal Typecheck" },
         },
-
         -- notes comments
         N = {
             name = "Notes",
             a = { "<cmd>:TodoTrouble<cr>", "Notes" },
         },
-
         -- FZF
         F = {
             name = "FZF",

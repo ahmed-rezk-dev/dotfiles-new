@@ -1,18 +1,21 @@
+local dap = require "dap"
 --[[ local DEBUGGER_PATH = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug" ]]
 local DEBUGGER_PATH = vim.fn.stdpath "data" .. "/mason/packages/js-debug-adapter"
+--[[ local DEBUGGER_PATH = vim.fn.stdpath "data" .. "/mason/packages/chrome-debug-adapter" ]]
 
+--[[ [dap-js] Error trying to launch JS debugger: ...nvim/lazy/nvim-dap-vscode-js/lua/dap-vscode-js/utils.lua:64: Debugger entrypoint file '/Users/ahmedrezk/.local/share/nvim/mason/packages/js-debug-adapter/out/src/vsDebugServer.js' does not exist. Did it build properly? ]]
 local M = {}
 
 function M.setup()
     require("dap-vscode-js").setup {
         node_path = "node",
         debugger_path = DEBUGGER_PATH,
-        -- debugger_cmd = { "js-debug-adapter" },
+        debugger_cmd = { "js-debug-adapter" },
         adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
     }
 
-    for _, language in ipairs { "typescript", "javascript" } do
-        require("dap").configurations[language] = {
+    for _, language in ipairs { "typescript", "javascript", "typescriptreact" } do
+        dap.configurations[language] = {
             {
                 type = "pwa-node",
                 request = "launch",
@@ -43,8 +46,7 @@ function M.setup()
                 internalConsoleOptions = "neverOpen",
             },
         }
-
-        for _, language in ipairs { "typescriptreact", "javascriptreact" } do
+        for _, languages in ipairs { "typescriptreact", "javascriptreact" } do
             require("dap").configurations[language] = {
                 {
                     type = "pwa-chrome",
@@ -59,7 +61,6 @@ function M.setup()
                     processId = require("dap.utils").pick_process,
                 },
                 {
-
                     program = "${file}",
                     cwd = vim.fn.getcwd(),
                     sourceMaps = true,
@@ -68,9 +69,9 @@ function M.setup()
                     type = "pwa-chrome",
                     name = "Launch Chrome",
                     request = "launch",
-                    host = "https://localhost:5001",
-                    webRoot = "${workspaceFolder}/src",
-                    url = "https://localhost:5001",
+                    --[[ host = "https://localhost:5001", ]]
+                    --[[ webRoot = "${workspaceFolder}/src", ]]
+                    --[[ url = "https://localhost:5001", ]]
                 },
             }
         end

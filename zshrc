@@ -13,6 +13,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export CC=/path/to/newer/compiler
+export JIRA_API_TOKEN="ATATT3xFfGF00v8w9109c7fpvenlYUbFjj8MYA_BwhqzIPUqPtFesz6fmJV8ja3uP4jQJwbdoyLIBi6m6aYNF34rdf80jkexl-8BLd2sxjZox32k9j7h0WrMhylbWOUXQedIE6X10lpEepAxk8iSCzGEr-lQ44l4VMG4gG5prgVdYfsMBM_jDaw=31374E4E"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

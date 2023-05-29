@@ -1,0 +1,24 @@
+* Manual Pricing
+  - error UI
+  - Fix this erro `react_devtools_backend.js:4012 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.`
+    [] Bug: after adding to proposal. Adder values are blank because pricing is loading in the background without an indication.
+
+
+
+* SQT-4055 
+  [] Fix `should prefill the adders if they were added to the price` test in `pricing-update.test.tsx` 
+
+* 4050
+  [x] reset adders values on toggling  
+  [x] clear adders values erros on toggling  
+
+
+
+* IMPORTANT:
+  [] Must have a way to throw a message for Error: Component must be wrapped with <Container.Provider>
+  [] Component must be wrapped with Provider. in Configure Pricing
+  [] Set time to figur out what we us `includeAdderQuotes` for?
+
+
+  [] Adder inputs background
+[] Where to open the PRs
